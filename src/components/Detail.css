@@ -1,0 +1,123 @@
+/* Detail.css - Optimized for Responsiveness & UI */
+
+.detail-container {
+  width: 100%;
+  /* We remove the fixed 900px and use 100% to let App.css control the max-width */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+  overflow: hidden;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box; /* Ensures padding doesn't push width over 100% */
+}
+
+.detail-title {
+  text-align: center;
+  margin-top: 0;
+  color: #202124;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+/* --- IMAGE SLIDER --- */
+.detail-slider {
+  position: relative;
+  width: 100%;
+  height: 350px; 
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.slider-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider-slide.active {
+  opacity: 1;
+}
+
+/* --- STATS GRID (The Fix for Folding) --- */
+.detail-stats-grid {
+  display: grid;
+  /* minmax(140px) allows cards to fit 2-per-row on most phones */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+  gap: 20px;
+  width: 100%;
+}
+
+.stat-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 13px;
+  color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-card p {
+  margin: 10px 0 0 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a73e8;
+}
+
+/* --- MAP SECTION --- */
+.map-container {
+  height: 400px; /* Kept your preferred height */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.directions-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #1a73e8;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+/* --- MOBILE SPECIFIC TWEAKS --- */
+@media (max-width: 768px) {
+  .detail-container {
+    padding: 20px; /* Smaller padding gives content more room */
+    gap: 20px;
+  }
+
+  .detail-slider {
+    height: 220px; /* Slightly shorter for mobile screens */
+  }
+
+  .map-container {
+    height: 300px;
+  }
+}

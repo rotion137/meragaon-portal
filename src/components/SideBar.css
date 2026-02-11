@@ -1,0 +1,64 @@
+/* --- DESKTOP STYLES (Default) --- */
+.sidebar {
+  width: 256px; /* Full width */
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 64px; 
+  padding-top: 10px;
+  background-color: #f9fbfd;
+  overflow-y: auto;
+  transition: width 0.3s ease; /* Smooth resizing */
+  z-index: 100;
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background-color: #dadce0; border-radius: 4px; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 24px; /* Increased padding for better touch targets */
+  cursor: pointer;
+  margin-right: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover { background-color: #f1f3f4; }
+.nav-item.active { background-color: #e8f0fe; }
+
+.nav-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3c4043;
+  white-space: nowrap; /* Prevents text wrapping during animation */
+}
+
+/* --- MOBILE STYLES (Icon Only Mode) --- */
+@media (max-width: 768px) {
+  
+  /* 1. Shrink the Sidebar */
+  .sidebar {
+    width: 70px; /* Just wide enough for the icon */
+    transform: none; /* Make sure it stays on screen */
+  }
+
+  /* 2. Hide the Text */
+  .nav-text {
+    display: none;
+  }
+
+  /* 3. Center the Icon */
+  .nav-item {
+    justify-content: center; /* Center horizontally */
+    padding: 15px 0; /* Adjust vertical padding */
+    margin-right: 5px; /* Smaller margin on the right */
+    gap: 0; /* Remove gap since text is gone */
+  }
+
+  /* Optional: Adjust icon size logic if needed here */
+}

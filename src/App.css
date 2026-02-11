@@ -1,0 +1,53 @@
+/* App.css */
+:root {
+  --sidebar-width: 256px;
+  --topbar-height: 64px;
+}
+
+.app-layout {
+  background-color: #f9fbfd;
+  min-height: 100vh;
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  margin-top: var(--topbar-height);
+  padding: 24px;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  justify-content: center; /* Centers the card on big screens */
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1000px; /* Limits how wide the cards get on massive monitors */
+}
+
+/* Home Card Styling */
+.home-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+  overflow: hidden;
+}
+
+.home-text {
+  padding: 30px;
+}
+
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 70px; /* Sidebar shrinks, so content margin must also shrink */
+  }
+
+  .main-content {
+    padding: 12px; /* Less padding on mobile gives more room to content */
+  }
+
+  .home-text h2 {
+    font-size: 1.25rem;
+  }
+}

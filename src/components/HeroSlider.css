@@ -1,0 +1,57 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 300px; /* A balanced height for a banner */
+  overflow: hidden;
+  border-radius: 12px; /* Rounded corners for the "card" look */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Slight lift and shadow increase */
+.slider-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Start with opacity 0 for the fade effect */
+  opacity: 0; 
+  /* Smooth transition for opacity change */
+  transition: opacity 1s ease-in-out; 
+  filter: brightness(0.7); /* Darken images slightly for text readability */
+}
+
+/* The class that makes the current image visible */
+.slide-image.active {
+  opacity: 1;
+}
+
+.slider-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 90%;
+  z-index: 10; /* Ensure text is above images */
+}
+
+.slider-overlay h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.slider-overlay p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
