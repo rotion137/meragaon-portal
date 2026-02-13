@@ -2,10 +2,11 @@
 :root {
   --sidebar-width: 256px;
   --topbar-height: 64px;
+  --bg-color: #f9fbfd; /* Define a consistent background color */
 }
 
 .app-layout {
-  background-color: #f9fbfd;
+  background-color: var(--bg-color);
   min-height: 100vh;
   display: flex;
 }
@@ -17,12 +18,21 @@
   padding: 24px;
   transition: margin-left 0.3s ease;
   display: flex;
-  justify-content: center; /* Centers the card on big screens */
+  /* We remove justify-content here and move it to a sub-class 
+     so the Admin page can stay left-aligned */
 }
 
 .content-container {
   width: 100%;
-  max-width: 1000px; /* Limits how wide the cards get on massive monitors */
+  display: flex;
+  flex-direction: column;
+}
+
+/* This class ensures Home and Detail stay centered and neat */
+.centered-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Home Card Styling */
@@ -37,14 +47,22 @@
   padding: 30px;
 }
 
+/* --- SEAMLESS ADMINISTRATION FIX --- */
+/* This makes the admin page feel like one single piece with the background */
+.admin-wrapper {
+  width: 100%;
+  background-color: transparent; 
+  padding-left: 10px; /* Slight breathing room from sidebar */
+}
+
 /* --- RESPONSIVE FIX --- */
 @media (max-width: 768px) {
   :root {
-    --sidebar-width: 70px; /* Sidebar shrinks, so content margin must also shrink */
+    --sidebar-width: 70px;
   }
 
   .main-content {
-    padding: 12px; /* Less padding on mobile gives more room to content */
+    padding: 12px;
   }
 
   .home-text h2 {

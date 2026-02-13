@@ -4,8 +4,9 @@ import SideBar from './components/SideBar';
 import HeroSlider from './components/HeroSlider';
 import AuthModal from './components/AuthModal'; 
 import Detail from './components/Detail'; 
+import Administration from './components/Administration'; // 1. IMPORT NEW COMPONENT
 import { supabase } from './supabaseClient'; 
-import './App.css'; // Ensure this is imported
+import './App.css'; 
 
 function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -26,12 +27,12 @@ function App() {
     <div className="app-layout">
       <TopBar onProfileClick={() => setShowAuthModal(true)} user={user} />
       
-      {/* Sidebar gets the same props to control navigation */}
       <SideBar activeTab={activeTab} setActiveTab={setActiveTab} />
       
       <main className="main-content">
         <div className="content-container">
           
+          {/* --- HOME TAB --- */}
           {activeTab === 'Home' && (
             <div className="home-card">
               <HeroSlider />
@@ -42,7 +43,11 @@ function App() {
             </div>
           )}
 
+          {/* --- DETAIL TAB --- */}
           {activeTab === 'Detail' && <Detail />}
+
+          {/* --- ADMINISTRATION TAB --- */}
+          {activeTab === 'Administration' && <Administration />} 
           
         </div>
       </main>
