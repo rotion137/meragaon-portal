@@ -1,92 +1,168 @@
-.admin-page {
+/* ==========================================================================
+   GOOGLE MATERIAL ADMINISTRATION CARDS
+   ========================================================================== */
+
+.google-admin-container {
   width: 100%;
-  padding-bottom: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Google Sans', Roboto, Arial, sans-serif;
+  animation: fadeIn 0.4s ease-out;
+  padding-bottom: 40px;
 }
 
-.admin-main-title {
-  font-size: 32px;
-  font-weight: 700;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Page Header --- */
+.admin-page-header {
   margin-bottom: 40px;
-  color: #202124;
+  text-align: center;
 }
 
-.admin-section-header {
-  font-size: 22px;
-  margin: 40px 0 20px 0;
+.admin-page-header h1 {
+  color: #202124;
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+}
+
+.admin-page-header p {
+  color: #5f6368;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --- Section Layouts --- */
+.admin-section {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  color: #1a73e8; /* Google Blue */
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e8eaed;
+  padding-bottom: 8px;
+}
+
+/* --- Grid Systems (Responsive Sizing) --- */
+.admin-grid {
+  display: grid;
+  gap: 24px;
+  justify-content: center;
+}
+
+.grid-large { grid-template-columns: repeat(auto-fit, minmax(300px, 350px)); }
+.grid-medium { grid-template-columns: repeat(auto-fit, minmax(220px, 260px)); }
+.grid-small { grid-template-columns: repeat(auto-fit, minmax(180px, 220px)); }
+
+/* --- Google Material Card Base --- */
+.google-admin-card {
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  cursor: default;
+}
+
+/* Minimal Hover Effect */
+.google-admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  background-color: #fcfdfd; /* Extremely subtle shift to match hover */
+}
+
+/* Dynamic Card Paddings */
+.card-large { padding: 40px 24px; }
+.card-medium { padding: 30px 20px; }
+.card-small { padding: 24px 16px; }
+
+/* --- Circular Photo --- */
+.photo-circle {
+  border-radius: 50%;
+  border: 2px solid #e8eaed;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f3f4;
+  margin-bottom: 20px;
+  color: #bdc1c6;
+  font-size: 3rem;
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dynamic Photo Sizes */
+.large-photo { width: 140px; height: 140px; }
+.medium-photo { width: 100px; height: 100px; font-size: 2rem; }
+.small-photo { width: 80px; height: 80px; font-size: 1.5rem; }
+
+/* --- Info Stack (The Green Pills from the layout) --- */
+.card-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Soft Material Chips/Pills */
+.info-pill {
+  width: 100%;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px; /* Slightly squared pill */
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+/* Matching the visual styles from the drawing */
+.name-pill {
+  background-color: #e6f4ea; /* Light Green */
+  color: #137333; /* Dark Green Text */
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.desc-pill {
+  background-color: #f1f3f4; /* Light Grey */
   color: #3c4043;
 }
 
-/* Leader Cards (Large) */
-.leaders-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.contact-pill {
+  background-color: #e8f0fe; /* Light Blue */
+  color: #1a73e8;
+  font-size: 0.85rem;
 }
 
-.leader-card {
-  display: flex;
-  align-items: center;
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-  gap: 30px;
+/* Scale down fonts slightly for the small cards */
+.card-small .info-pill {
+  padding: 6px 8px;
+  font-size: 0.8rem;
+}
+.card-small .name-pill {
+  font-size: 0.95rem;
 }
 
-.leader-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  border: 4px solid #f8f9fa;
-  flex-shrink: 0;
-}
-
-/* Small Cards Grid */
-.admin-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.admin-small-card {
-  background: white;
-  padding: 24px;
-  border-radius: 16px;
+/* --- Loading State --- */
+.admin-loading {
   text-align: center;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.admin-circle-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-  background-size: cover;
-}
-
-/* Table styling */
-.admin-table-wrapper {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.admin-table th, .admin-table td {
-  padding: 15px 20px;
-  text-align: left;
-  border-bottom: 1px solid #f1f3f4;
-}
-
-.admin-table th {
-  background: #f8f9fa;
-  font-weight: 600;
+  padding: 60px;
+  font-size: 1.2rem;
   color: #5f6368;
 }

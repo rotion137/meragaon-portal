@@ -1,0 +1,256 @@
+/* ==========================================================================
+   GOOGLE MATERIAL HEALTHCARE PAGE
+   ========================================================================== */
+
+.google-health-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Google Sans', Roboto, sans-serif;
+  animation: fadeIn 0.4s ease-out;
+  padding-bottom: 40px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.health-page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.health-page-header h1 {
+  color: #202124;
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+}
+
+.health-page-header p {
+  color: #5f6368;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.health-section {
+  margin-bottom: 48px;
+}
+
+.health-section-title {
+  color: #1a73e8; /* Google Blue */
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e8eaed;
+  padding-bottom: 8px;
+}
+
+.emergency-title {
+  color: #d93025; /* Red for emergency */
+}
+
+/* --- Base Google Card --- */
+.google-health-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-health-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px -2px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.06);
+}
+
+/* --- Grids --- */
+.health-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.hospital-grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.worker-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 240px)); }
+.info-grid { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); }
+
+/* --- Emergency Pills --- */
+.emergency-pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.emergency-pill {
+  background-color: #fce8e6; /* Light Red */
+  border: 1px solid #fad2cf;
+  padding: 12px 20px;
+  border-radius: 30px; /* Fully rounded pill */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+}
+
+.emergency-pill strong {
+  color: #202124;
+}
+
+.contact-number {
+  color: #c5221f; /* Dark Red */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* --- Hospital Cards --- */
+.hospital-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.hospital-image-area {
+  height: 180px;
+  background-color: #f1f3f4;
+}
+
+.hospital-image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hospital-info {
+  padding: 20px;
+}
+
+.hospital-info h3 {
+  margin: 0 0 16px 0;
+  color: #202124;
+  font-size: 1.25rem;
+}
+
+.hospital-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.distance-badge {
+  background-color: #f1f3f4;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #5f6368;
+  font-weight: 600;
+}
+
+.direction-btn {
+  background-color: white;
+  color: #1a73e8;
+  border: 1px solid #dadce0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.direction-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #1a73e8;
+}
+
+/* --- Worker Cards (Mitanin) --- */
+.worker-card {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.worker-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #e8eaed;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  overflow: hidden;
+  border: 2px solid #dadce0;
+}
+
+.worker-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.worker-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.worker-name { font-weight: 600; color: #202124; font-size: 1.05rem; }
+.worker-designation { color: #137333; background-color: #e6f4ea; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 500;}
+.worker-contact { color: #5f6368; font-size: 0.9rem; }
+
+/* --- Other Information (Schemes) --- */
+.info-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-image {
+  height: 160px;
+  background-color: #f8f9fa;
+}
+
+.info-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.info-content h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  color: #202124;
+}
+
+.info-description {
+  margin: 0 0 20px 0;
+  color: #5f6368;
+  line-height: 1.6;
+  white-space: pre-wrap; /* This ensures your bullet points (\n) format correctly! */
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.action-btn {
+  background-color: #1a73e8;
+  color: white;
+  text-align: center;
+  padding: 10px 16px 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+
+}
+
+.action-btn:hover {
+  background-color: #1765cc;
+}

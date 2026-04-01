@@ -9,17 +9,17 @@ import './SideBar.css';
 const SideBar = ({ activeTab, setActiveTab }) => {
 
   const menuItems = [
-    { name: 'Home',         icon: Home,                 color: '#1a73e8' },
-    { name: 'Detail',       icon: Info,                 color: '#5f6368' },
-    { name: 'Administration', icon: Landmark,           color: '#d93025' },
-    { name: 'Service',      icon: Briefcase,            color: '#e37400' },
-    { name: 'Education',    icon: GraduationCap,        color: '#1a73e8' },
-    { name: 'Agriculture',  icon: Sprout,               color: '#188038' },
-    { name: 'Tourism',      icon: Map,                  color: '#a142f4' },
-    { name: 'Healthcare',   icon: Stethoscope,          color: '#d93025' },
-    { name: 'Sport',        icon: Trophy,               color: '#f9ab00' },
-    { name: 'Schemes',      icon: HandCoins,            color: '#1967d2' },
-    { name: 'Grievances',   icon: MessageCircleWarning, color: '#c5221f' },
+    { name: 'Home',           icon: Home,                 color: '#1a73e8' },
+    { name: 'Detail',         icon: Info,                 color: '#5f6368' },
+    { name: 'Administration', icon: Landmark,             color: '#d93025' },
+    { name: 'Service',        icon: Briefcase,            color: '#e37400' },
+    { name: 'Education',      icon: GraduationCap,        color: '#1a73e8' },
+    { name: 'Agriculture',    icon: Sprout,               color: '#188038' },
+    { name: 'Tourism',        icon: Map,                  color: '#a142f4' },
+    { name: 'HealthCare',     icon: Stethoscope,          color: '#d93025' }, /* Fixed spelling to match App.jsx */
+    { name: 'Sports',          icon: Trophy,               color: '#f9ab00' },
+    { name: 'Schemes',        icon: HandCoins,            color: '#1967d2' },
+    { name: 'Grievances',     icon: MessageCircleWarning, color: '#c5221f' },
   ];
 
   return (

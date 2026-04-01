@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 import TopBar from './components/TopBar';
 import SideBar from './components/SideBar';
 import HeroSlider from './components/HeroSlider';
+import DashboardHero from './components/DashboardHero'; 
 import AuthModal from './components/AuthModal'; 
+import UserProfile from './components/UserProfile'; 
 import Detail from './components/Detail'; 
-import Administration from './components/Administration'; // 1. IMPORT NEW COMPONENT
+import Administration from './components/Administration'; 
+import Grievances from './components/Grievances'; 
+import Service from './components/Service'; 
+import HealthCare from './components/HealthCare'; // 1. NEW: Imported HealthCare
+import Education from './components/Education';
+import Sports from './components/Sports';
 import { supabase } from './supabaseClient'; 
 import './App.css'; 
 
@@ -25,7 +32,11 @@ function App() {
 
   return (
     <div className="app-layout">
-      <TopBar onProfileClick={() => setShowAuthModal(true)} user={user} />
+      
+      <TopBar 
+        onProfileClick={() => user ? setActiveTab('Profile') : setShowAuthModal(true)} 
+        user={user} 
+      />
       
       <SideBar activeTab={activeTab} setActiveTab={setActiveTab} />
       
@@ -35,7 +46,7 @@ function App() {
           {/* --- HOME TAB --- */}
           {activeTab === 'Home' && (
             <div className="home-card">
-              <HeroSlider />
+              {user ? <DashboardHero /> : <HeroSlider />}
               <div className="home-text">
                 <h2>Welcome to KarmhaGaon</h2>
                 <p>{user ? `Hello, ${user.email}!` : "Please sign in to access services."}</p>
@@ -43,16 +54,43 @@ function App() {
             </div>
           )}
 
-          {/* --- DETAIL TAB --- */}
-          {activeTab === 'Detail' && <Detail />}
+          {/* --- PROFILE TAB --- */}
+          {activeTab === 'Profile' && (
+            <UserProfile user={user} setActiveTab={setActiveTab} />
+          )}
 
-          {/* --- ADMINISTRATION TAB --- */}
+          {/* --- GRIEVANCES TAB --- */}
+          {activeTab === 'Grievances' && (
+            <Grievances user={user} setShowAuthModal={setShowAuthModal} />
+          )}
+
+          {/* --- SERVICE TAB --- */}
+          {activeTab === 'Service' && (
+            <Service />
+          )}
+
+          {/* --- HEALTHCARE TAB (NEW) --- */}
+          {activeTab === 'HealthCare' && (
+            <HealthCare />
+          )}
+
+          {/* --- OTHER TABS --- */}
+          {activeTab === 'Detail' && <Detail />}
           {activeTab === 'Administration' && <Administration />} 
+
+          {activeTab === 'Education' && (
+          <Education />
+          
+          )}
+
+          {activeTab === 'Sports' && <Sports />}
           
         </div>
       </main>
 
+      {/* --- LOGIN MODAL --- */}
       {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
+      
     </div>
   );
 }

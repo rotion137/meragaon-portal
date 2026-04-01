@@ -1,123 +1,247 @@
-/* Detail.css - Optimized for Responsiveness & UI */
+/* ==========================================================================
+   GOOGLE MATERIAL DETAIL PAGE
+   ========================================================================== */
 
-.detail-container {
+.google-detail-container {
   width: 100%;
-  /* We remove the fixed 900px and use 100% to let App.css control the max-width */
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-  overflow: hidden;
-  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  font-family: 'Inter', 'Google Sans', Roboto, Arial, sans-serif;
+  animation: fadeIn 0.4s ease-out;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  box-sizing: border-box; /* Ensures padding doesn't push width over 100% */
+  gap: 24px;
 }
 
-.detail-title {
-  text-align: center;
-  margin-top: 0;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-header {
+  margin-bottom: 8px;
+}
+
+.detail-header h1 {
   color: #202124;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 15px;
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
 }
 
-/* --- IMAGE SLIDER --- */
-.detail-slider {
-  position: relative;
-  width: 100%;
-  height: 350px; 
+.detail-header p {
+  color: #5f6368;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --- Base Google Card --- */
+.google-card {
+  background: white;
   border-radius: 12px;
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
   overflow: hidden;
-  background-color: #eee;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.slider-slide {
+/* Only the info card and map card get the hover lift, not the image */
+.detail-info-card:hover,
+.detail-map-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* --- Top Layout (Image + Info) --- */
+.detail-top-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr; /* Image is exactly 400px wide, Info takes the rest */
+  gap: 24px;
+}
+
+/* Gallery / Slider */
+.detail-gallery-card {
+  position: relative;
+  height: 320px; /* Limits the height of the photo */
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-slide {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
-.slider-slide.active {
+.gallery-slide.active {
   opacity: 1;
 }
 
-/* --- STATS GRID (The Fix for Folding) --- */
+.gallery-placeholder {
+  color: #5f6368;
+  font-weight: 500;
+}
+
+/* Info Section */
+.detail-info-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-info-card h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  color: #202124;
+}
+
+.detail-description {
+  margin: 0 0 24px 0;
+  color: #5f6368;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Stats Grid (Google Chips) */
 .detail-stats-grid {
   display: grid;
-  /* minmax(140px) allows cards to fit 2-per-row on most phones */
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-  gap: 20px;
-  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: auto; /* Pushes stats to the bottom if text is short */
 }
 
-.stat-card {
+.google-stat-chip {
   background-color: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background-color 0.2s, border-color 0.2s;
+  cursor: default;
 }
 
-.stat-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.google-stat-chip:hover {
+  background-color: #f1f3f4;
+  border-color: #dadce0;
 }
 
-.stat-card h3 {
-  margin: 0;
-  font-size: 13px;
+.stat-title {
+  font-size: 0.85rem;
   color: #5f6368;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.stat-card p {
-  margin: 10px 0 0 0;
-  font-size: 26px;
-  font-weight: 700;
-  color: #1a73e8;
+.stat-value {
+  font-size: 1.4rem;
+  color: #1a73e8; /* Google Blue */
+  font-weight: 500;
 }
 
-/* --- MAP SECTION --- */
-.map-container {
-  height: 400px; /* Kept your preferred height */
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #e0e0e0;
-  margin-bottom: 15px;
+.loading-text {
+  color: #5f6368;
+  font-style: italic;
 }
 
-.directions-btn {
-  display: inline-block;
-  padding: 12px 24px;
+/* --- Map Section --- */
+.detail-map-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f3f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafbfc;
+}
+
+.map-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #ceead6; /* Light Green */
+  color: #137333;
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+
+.map-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #202124;
+  font-weight: 500;
+}
+
+/* Google Button */
+.google-btn {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-btn {
   background-color: #1a73e8;
   color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background-color 0.2s;
-  text-align: center;
+  border: none;
 }
 
-/* --- MOBILE SPECIFIC TWEAKS --- */
-@media (max-width: 768px) {
-  .detail-container {
-    padding: 20px; /* Smaller padding gives content more room */
-    gap: 20px;
+.map-btn:hover {
+  background-color: #1765cc;
+  box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+.map-wrapper {
+  height: 400px; /* Locks map height */
+  width: 100%;
+  background-color: #e8eaed;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 850px) {
+  .detail-top-grid {
+    grid-template-columns: 1fr; /* Stacks image on top of info */
   }
 
-  .detail-slider {
-    height: 220px; /* Slightly shorter for mobile screens */
+  .detail-gallery-card {
+    height: 250px;
   }
+}
 
-  .map-container {
-    height: 300px;
+@media (max-width: 600px) {
+  .map-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .map-btn {
+    width: 100%; /* Full width button on mobile */
   }
 }

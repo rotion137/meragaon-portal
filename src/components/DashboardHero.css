@@ -1,0 +1,234 @@
+/* ==========================================================================
+   GOOGLE-STYLE MINIMAL DASHBOARD HERO
+   ========================================================================== */
+
+.google-dashboard-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  
+  /* NEW: This adds space at the top so the cards don't touch the main container edge */
+  padding-top: 24px; 
+  padding-bottom: 24px;
+
+  font-family: 'Inter', 'Google Sans', Roboto, Arial, sans-serif;
+  animation: fadeIn 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Top Layout --- */
+.google-dashboard-top-row {
+  display: grid;
+  grid-template-columns: 1fr 320px; /* Responsive left slider, fixed right stats */
+  gap: 24px;
+}
+
+/* --- Unified Google Material Card --- */
+.google-slider-card,
+.google-widget-card,
+.google-notices-card {
+  background: white;
+  border-radius: 12px; 
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Minimal Hover Effect for Data & Notices */
+.google-widget-card:hover,
+.google-notices-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* --- Image Slider Section --- */
+.google-slider-card {
+  position: relative;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa; 
+}
+
+.google-slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.google-slide-image.active {
+  opacity: 1;
+}
+
+.google-slide-placeholder {
+  color: #5f6368;
+  font-weight: 500;
+}
+
+/* --- Data Widget Column (Right side) --- */
+.google-stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.google-widget-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1; 
+}
+
+/* Widget Headers */
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.widget-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+
+.weather-icon { background-color: #e8f0fe; color: #1a73e8; } 
+.pop-icon { background-color: #e6f4ea; color: #137333; } 
+.notice-icon { background-color: #fce8e6; color: #c5221f; } 
+
+.widget-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Main Data Display */
+.widget-main-value {
+  margin: 0 0 8px 0;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #202124;
+  line-height: 1;
+}
+
+.widget-sub-value {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5f6368;
+}
+
+.widget-sub-value strong {
+  color: #202124;
+}
+
+/* --- Notices Section (Bottom area) --- */
+.google-notices-card {
+  padding: 24px;
+}
+
+.notices-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.notices-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #202124;
+}
+
+.google-notice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual Notice Item with Hover */
+.google-notice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px; 
+  border-bottom: 1px solid #f1f3f4;
+  transition: background-color 0.2s ease, border-radius 0.2s ease; 
+  cursor: pointer; 
+}
+
+.google-notice-item:hover {
+  background-color: #f8f9fa; 
+  border-radius: 8px; 
+}
+
+.google-notice-item:last-child {
+  border-bottom: none;
+}
+
+.notice-bullet {
+  margin-top: 6px;
+  min-width: 8px;
+  height: 8px;
+  background-color: #1a73e8; 
+  border-radius: 50%;
+}
+
+.google-notice-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #3c4043;
+  line-height: 1.6;
+}
+
+.empty-notices {
+  color: #5f6368;
+  padding: 20px 0;
+  font-style: italic;
+  text-align: center;
+}
+
+/* --- Mobile & Tablet Responsiveness --- */
+@media (max-width: 850px) {
+  .google-dashboard-top-row {
+    grid-template-columns: 1fr; 
+  }
+
+  .google-slider-card {
+    height: 250px;
+  }
+
+  .google-stats-column {
+    flex-direction: row; 
+  }
+}
+
+@media (max-width: 600px) {
+  .google-stats-column {
+    flex-direction: column; 
+  }
+}

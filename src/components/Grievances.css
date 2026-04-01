@@ -1,0 +1,200 @@
+/* ==========================================================================
+   GOOGLE MATERIAL STYLE GRIEVANCE FORM
+   ========================================================================== */
+
+.google-grievance-wrapper {
+  width: 100%;
+  padding: 24px 20px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', 'Google Sans', Roboto, Arial, sans-serif;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- The Main White Card --- */
+.google-grievance-card {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  border: 1px solid #dadce0; /* Google Grey Border */
+  overflow: hidden;
+}
+
+/* --- Header Section --- */
+.google-grievance-header {
+  padding: 32px 32px 24px 32px;
+  border-bottom: 1px solid #f1f3f4;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: #fafbfc;
+}
+
+.header-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  background-color: #fce8e6; /* Light Red/Warning Background */
+  border-radius: 50%;
+}
+
+.header-icon {
+  font-size: 1.5rem;
+}
+
+.google-grievance-header h2 {
+  margin: 0 0 8px 0;
+  color: #202124;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.google-grievance-header p {
+  margin: 0;
+  color: #5f6368;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* --- Form Body --- */
+.google-grievance-form {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.google-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.google-form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #3c4043;
+}
+
+/* --- Google-Style Inputs --- */
+.google-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #202124;
+  background-color: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.google-input::placeholder {
+  color: #9aa0a6;
+}
+
+/* Google Blue Focus State */
+.google-input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.google-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.google-select {
+  cursor: pointer;
+}
+
+/* --- Google-Style Buttons --- */
+.google-form-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end; /* Aligns button to the right */
+}
+
+.google-btn {
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px; /* Slightly sharper corners for buttons */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Primary Filled Button (Google Blue) */
+.primary-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+}
+
+.primary-btn:hover:not(:disabled) {
+  background-color: #1765cc;
+  box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15), 0 2px 6px 2px rgba(60,64,67,0.15);
+  transform: translateY(-1px);
+}
+
+.primary-btn:disabled {
+  background-color: #e8eaed;
+  color: #9aa0a6;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Outline Button (For logged-out users) */
+.outline-btn {
+  background-color: transparent;
+  color: #d93025; /* Red warning color to signify action needed */
+  border: 1px solid #f28b82;
+}
+
+.outline-btn:hover {
+  background-color: #fce8e6;
+  border-color: #d93025;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+  .google-grievance-wrapper {
+    padding: 16px 12px;
+  }
+  
+  .google-grievance-header {
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .google-grievance-form {
+    padding: 24px;
+  }
+
+  .google-form-actions {
+    justify-content: stretch; /* Button takes full width on mobile */
+  }
+
+  .google-btn {
+    width: 100%;
+    padding: 14px;
+  }
+}

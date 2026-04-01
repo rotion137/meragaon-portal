@@ -1,0 +1,267 @@
+/* ==========================================================================
+   GOOGLE MATERIAL SPORTS PAGE
+   ========================================================================== */
+
+.google-sports-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Google Sans', Roboto, sans-serif;
+  animation: fadeIn 0.4s ease-out;
+  padding-bottom: 60px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sports-page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.sports-page-header h1 {
+  color: #1a73e8; /* Google Blue */
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+}
+
+.sports-page-header p {
+  color: #5f6368;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.sports-section {
+  margin-bottom: 56px;
+}
+
+.sports-section-title {
+  color: #202124;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8eaed;
+}
+
+/* --- UPCOMING GAMES (Hero Block) --- */
+.google-sports-hero {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+/* Background image with subtle slow zoom on hover */
+.hero-image-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.google-sports-hero:hover .hero-image-bg {
+  transform: scale(1.03); /* Subtle zoom effect */
+}
+
+/* Dark gradient overlay for text readability */
+.hero-overlay {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  padding: 40px 32px 32px 32px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-badge {
+  align-self: flex-start;
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  font-size: 1rem;
+  color: #e8eaed;
+}
+
+.hero-details p { margin: 0; }
+.hero-terms { grid-column: 1 / -1; margin-top: 8px !important; color: #bdc1c6; font-size: 0.9rem; }
+
+/* --- INFRASTRUCTURE CARDS --- */
+.infra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.infra-card {
+  position: relative;
+  height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.infra-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px -2px rgba(0,0,0,0.15), 0 3px 7px -3px rgba(0,0,0,0.1);
+}
+
+.infra-image-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.infra-card:hover .infra-image-bg {
+  transform: scale(1.05);
+}
+
+.infra-overlay {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  padding: 30px 20px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 70%, transparent 100%);
+  color: white;
+}
+
+.infra-badge {
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.infra-name {
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+}
+
+.infra-desc {
+  font-size: 0.9rem;
+  color: #e8eaed;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- STAR PLAYERS TABLE --- */
+.google-table-container {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #dadce0;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  overflow-x: auto; /* Allows scrolling on mobile */
+}
+
+.google-sports-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.google-sports-table th {
+  background-color: #f8f9fa;
+  padding: 16px 24px;
+  font-weight: 500;
+  color: #1a73e8; /* Google Blue Headers */
+  font-size: 0.95rem;
+  border-bottom: 1px solid #dadce0;
+}
+
+.google-sports-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f1f3f4;
+  color: #3c4043;
+  vertical-align: middle;
+}
+
+/* Row Hover Interaction */
+.google-sports-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.google-sports-table tbody tr:hover {
+  background-color: #f8f9fa; /* Classic Google Table Hover */
+}
+
+.google-sports-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Avatars */
+.table-photo-cell { width: 80px; }
+
+.player-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e8eaed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #dadce0;
+}
+
+.player-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.table-name-cell {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #202124;
+}
+
+/* Clean Lists in Table */
+.table-list {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+  color: #5f6368;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-details { grid-template-columns: 1fr; }
+  .google-sports-hero { height: auto; min-height: 350px; }
+  .hero-overlay { padding: 24px 20px 20px 20px; }
+}
