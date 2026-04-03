@@ -69,3 +69,29 @@
     font-size: 1.25rem;
   }
 }
+
+/* --- MOBILE RESPONSIVE FIXES --- */
+@media (max-width: 768px) {
+  /* Stack the layout vertically instead of side-by-side */
+  .app-container { 
+    flex-direction: column !important; 
+    min-height: 100vh;
+  }
+
+  /* Make the sidebar span the full width of the phone */
+  .sidebar {
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    overflow-x: auto; /* Allows swiping left/right on the menu */
+    white-space: nowrap;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Make the main content take up the rest of the screen */
+  .main-content {
+    width: 100% !important;
+    padding: 15px !important;
+  }
+}
