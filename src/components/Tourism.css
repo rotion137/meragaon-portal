@@ -1,0 +1,170 @@
+/* ==========================================================================
+   GOOGLE MATERIAL TOURISM PAGE (Compact Cards)
+   ========================================================================== */
+
+.google-tourism-container {
+  width: 100%;
+  max-width: 900px; 
+  margin: 0 auto;
+  font-family: 'Inter', 'Google Sans', Roboto, sans-serif;
+  animation: fadeIn 0.4s ease-out;
+  padding-bottom: 60px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tourism-page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.tourism-page-header h1 {
+  color: #1a73e8; /* Google Blue */
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+}
+
+.tourism-page-header p {
+  color: #5f6368;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --- The Tourism Card --- */
+.tourism-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Reduced gap between cards to make the list tighter */
+}
+
+.google-tourism-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-tourism-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px -4px rgba(0,0,0,0.15), 0 4px 8px -4px rgba(0,0,0,0.1);
+}
+
+/* --- Auto Slider Section --- */
+.tourism-slider-container {
+  position: relative;
+  width: 100%;
+  height: 320px; /* REDUCED FROM 450px: Makes the card much more compact */
+  background-color: #f1f3f4;
+}
+
+.tourism-slide {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out; 
+}
+
+.tourism-slide.active {
+  opacity: 1;
+}
+
+.slider-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px; /* Matched to new slider height */
+  background-color: #f1f3f4;
+  color: #9aa0a6;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+/* Little dots at the bottom of the image */
+.slider-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* --- Card Footer (Place Name & Button) --- */
+.tourism-card-footer {
+  padding: 20px 24px; /* Tighter padding to match the smaller image */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-top: 1px solid #f1f3f4;
+}
+
+.place-name {
+  margin: 0;
+  font-size: 1.4rem; /* Scaled down slightly to match the compact card */
+  color: #1a73e8; 
+  font-weight: 600;
+}
+
+/* Map Button Styling (Clean Pill shape) */
+.map-action-btn {
+  background-color: #e6f4ea; 
+  color: #137333; 
+  border: 1px solid #ceead6;
+  padding: 8px 20px; /* Slightly smaller button padding */
+  border-radius: 24px; 
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem; /* Slightly smaller text */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.map-action-btn:hover {
+  background-color: #ceead6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.map-icon {
+  font-size: 1.1rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .tourism-slider-container { height: 240px; } /* Even smaller on mobile */
+  .slider-placeholder { height: 240px; }
+  .tourism-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+  .map-action-btn { width: 100%; justify-content: center; }
+}

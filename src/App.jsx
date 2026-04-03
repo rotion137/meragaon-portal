@@ -12,6 +12,9 @@ import Service from './components/Service';
 import HealthCare from './components/HealthCare'; // 1. NEW: Imported HealthCare
 import Education from './components/Education';
 import Sports from './components/Sports';
+import Tourism from './components/Tourism';
+import Agriculture from './components/Agriculture';
+import Schemes from './components/Schemes';
 import { supabase } from './supabaseClient'; 
 import './App.css'; 
 
@@ -84,6 +87,12 @@ function App() {
           )}
 
           {activeTab === 'Sports' && <Sports />}
+
+          {activeTab === 'Tourism' && <Tourism />}
+
+          {activeTab === 'Agriculture' && <Agriculture />}
+
+          {activeTab === 'Schemes' && <Schemes />}
           
         </div>
       </main>

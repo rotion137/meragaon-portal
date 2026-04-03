@@ -459,3 +459,40 @@
 }
 
 .reject-btn:hover { background-color: #feb2b2; }
+
+/* --- NEW STYLES FOR ADMIN FORMS --- */
+
+.admin-select-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #3c4043;
+  margin-bottom: 16px;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+.admin-select-input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+}
+
+.form-row-split {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row-split input {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .form-row-split {
+    flex-direction: column;
+    gap: 0;
+  }
+}
